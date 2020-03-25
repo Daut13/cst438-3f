@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmls:th="www.whymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>City</title>
+</head>
+<style>
+	body{
+		margin-left: 40%;
+		margin-top: 5%;
+	}
+</style>
+<body>
+	<div class="textBody">
+		<h2>City</h2>
+		
+		<p th:inline="text"><strong>ID:</strong> [[${cityInfo.id}]]</p>
+		<p th:inline="text"><strong>Name:</strong> [[${cityInfo.name}]]</p>
+		<p th:inline="text"><strong>Country Code:</strong> [[${cityInfo.countryCode}]]</p>
+		<p th:inline="text"><strong>Country Name:</strong> [[${cityInfo.countryName}]]</p>
+		<p th:inline="text"><strong>District:</strong> [[${cityInfo.district}]]</p>
+		<p th:inline="text"><strong>Population:</strong> [[${cityInfo.population}]]</p>
+		<p th:inline="text"><strong>Local Weather:</strong> [[${cityInfo.temp}]]</p>
+		<p th:inline="text"><strong>Local Time:</strong> [[${cityInfo.time}]]</p><br/><br/>
+	
+		<p>For a fabulous weekend get away for 2 to [[${cityInfo.name}]], sign up here</p>
+		<form action="#" th:action="@{/cities/reservation}" method="post">
+			<label for="email">Email:</label>
+			<input type="text" id="email" name="email"><br/>
+			<input type="radio" id="luxury" name="vacationType" th:name="level" th:value="luxury">
+			<label for="luxury">Luxury $1000</label><br/>
+			<input type="radio" id="veryGood" name="vacationType" th:name="level" th:value="veryGood">
+			<label for="veryGood">Very Good $500</label><br/>
+			<input type="radio" id="good" name="vacationType" th:name="level" th:value="good">
+			<label for="good">Good $350</label><br/>
+			<input type="submit" value="Submit">
+		</form>
+	</div>
+</body>
+</html>
